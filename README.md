@@ -4,7 +4,7 @@
 
 > **The billion-dollar mentor in your pocket. Orchestrated by JARVIS.**
 
-`asifthatworks` is more than just code—it's a mission. Created by the **AsIfThatWorks Developer**, this project is built to last. It serves as the digital home of a futuristic AI agency dedicated to manifesting high-performance results through specialized autonomous agents.
+`asifthatworks` is more than just code—it's a mission. Created by the **AsIfThatWorks Developer** as a solo project while studying Computer Science, its core purpose is to bring productivity back to people. We aim to use technology consciously and intentionally, ensuring it serves humanity rather than the other way around. It serves as the digital home of a futuristic AI agency dedicated to manifesting high-performance results through specialized autonomous agents.
 
 ## 🌌 The Vision
 We don't just build chatbots; we manifest productivity. By leveraging a multi-agent architectural layer, `asifthatworks` provides users with an elite team of AI specialists that hold contextual memory and execute tasks with dry-witted precision.
