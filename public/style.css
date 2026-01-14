@@ -743,6 +743,23 @@ nav {
 
 .legal-content.active {
     display: block;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 1.5rem;
+}
+
+/* Custom Scrollbar for Legal Content */
+.legal-content.active::-webkit-scrollbar {
+    width: 4px;
+}
+
+.legal-content.active::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.legal-content.active::-webkit-scrollbar-thumb {
+    background: var(--accent-blue);
+    border-radius: 10px;
 }
 
 .legal-content h3 {

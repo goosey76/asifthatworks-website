@@ -33,6 +33,12 @@ Currently in the **Distribution Phase (Q1 2026)**.
 - [ ] Beta Tester Distribution & Feedback Round
 - [ ] Q2 2026: Official Global Launch
 
+
+## 🚀 Deployment (Hostinger Guide)
+To deploy this project to Hostinger, use these settings:
+- **Framework Preset**: `Other` or `Node.js` (NOT Next.js).
+- **Build Command**: `npm install`
+- **Output Directory**: `.` (or leave empty)
+
 ---
-*Manifest Your Order. Orchestrated by [asifthatworks]
-(https://github.com/goosey76/asifthatworks-website).*
+*Manifest Your Order. Orchestrated by [asifthatworks](https://github.com/goosey76/asifthatworks-website).*

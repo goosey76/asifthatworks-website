@@ -597,7 +597,9 @@
             contents.forEach(content => content.classList.remove('active'));
 
             evt.currentTarget.classList.add('active');
-            document.getElementById(tabName).classList.add('active');
+            const targetContent = document.getElementById(tabName);
+            targetContent.classList.add('active');
+            targetContent.scrollTop = 0; // Reset scroll position
         }
     </script>
 </body>
