@@ -242,8 +242,99 @@
         </div>
     </section>
 
+    <section id="legal" class="legal-section">
+        <div class="legal-container">
+            <h2 class="section-title">LEGAL INFO</h2>
+            <div class="legal-tabs">
+                <button class="legal-tab active" onclick="openLegalTab(event, 'legal-notice')">Legal Notice</button>
+                <button class="legal-tab" onclick="openLegalTab(event, 'privacy-policy')">Privacy Policy</button>
+                <button class="legal-tab" onclick="openLegalTab(event, 'terms-of-service')">Terms of Service</button>
+            </div>
+
+            <div id="legal-notice" class="legal-content active">
+                <h3>Information according to § 5 TMG</h3>
+                <p>
+                    Ky Anh Pham AI Solutions & Development<br>
+                    Brückenstraße 12<br>
+                    12439 Berlin<br>
+                    Germany
+                </p>
+
+                <h3>Contact Information</h3>
+                <p>
+                    E-Mail: <a href="mailto:support@asifthatworks.com"
+                        class="accent-link">support@asifthatworks.com</a><br>
+                    Website: <a href="http://www.asifthatworks.com" target="_blank"
+                        class="accent-link">www.asifthatworks.com</a>
+                </p>
+
+                <h3>VAT Identification Number</h3>
+                <p>
+                    VAT ID according to § 27a UStG:<br>
+                    Exempt from VAT according to § 19 UStG
+                </p>
+
+                <h3>Person Responsible for Content according to § 18 MStV</h3>
+                <p>
+                    Ky Anh Pham<br>
+                    Brückenstraße 12<br>
+                    12439 Berlin<br>
+                    Germany
+                </p>
+
+                <h3>Dispute Resolution</h3>
+                <p>
+                    The European Commission provides a platform for online dispute resolution (ODR): <a
+                        href="https://ec.europa.eu/consumers/odr" target="_blank"
+                        class="accent-link">https://ec.europa.eu/consumers/odr</a>.<br><br>
+                    Our e-mail address can be found above in the legal notice. We are not willing or obliged to
+                    participate in dispute resolution proceedings before a consumer arbitration board.
+                </p>
+
+                <h3>Liability for Content</h3>
+                <p>
+                    As a service provider, we are responsible for our own content on these pages in accordance with
+                    general laws pursuant to § 7 para. 1 TMG. However, according to §§ 8 to 10 TMG, we as service
+                    providers are not obliged to monitor transmitted or stored third-party information or to investigate
+                    circumstances that indicate illegal activity.
+                </p>
+
+                <h3>Liability for Links</h3>
+                <p>
+                    Our offer contains links to external websites of third parties, on whose contents we have no
+                    influence. Therefore, we cannot assume any liability for these external contents.
+                </p>
+
+                <h3>Copyright</h3>
+                <p>
+                    The content and works created by the site operators on these pages are subject to German copyright
+                    law. The reproduction, processing, distribution and any kind of exploitation outside the limits of
+                    copyright law require the written consent of the respective author or creator.
+                </p>
+            </div>
+
+            <div id="privacy-policy" class="legal-content">
+                <h3>Privacy Policy</h3>
+                <p>We take your privacy seriously. Detailed data processing information will be manifested here soon.
+                </p>
+            </div>
+
+            <div id="terms-of-service" class="legal-content">
+                <h3>Terms of Service</h3>
+                <p>The rules of orchestration. Terms and conditions are being codified for transparency.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>© 2025 AsifThatWorks. All rights reserved.</p>
+        <div class="footer-content">
+            <p>© 2025 AsifThatWorks. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#legal">Legal Notice</a>
+                <a href="#legal">Privacy Policy</a>
+                <a href="#legal">Terms of Service</a>
+            </div>
+        </div>
     </footer>
 
     <script>
@@ -341,6 +432,18 @@
                 line.style.transition = 'all 0.5s ease-out';
             }, index * 800);
         });
+
+        // Legal Tabs Interaction
+        function openLegalTab(evt, tabName) {
+            const tabs = document.querySelectorAll('.legal-tab');
+            const contents = document.querySelectorAll('.legal-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            evt.currentTarget.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
     </script>
 </body>
 

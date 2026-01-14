@@ -696,17 +696,149 @@ nav {
     color: var(--accent-blue);
 }
 
-/* Footer */
-footer {
-    padding: 4rem 10%;
+/* Legal Section */
+.legal-section {
+    padding: 6rem 10%;
+    background: rgba(5, 5, 5, 0.5);
     border-top: 1px solid var(--glass-border);
-    text-align: center;
-    color: #444;
-    font-size: 0.9rem;
 }
 
-footer span {
+.legal-container {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.legal-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 1rem;
+}
+
+.legal-tab {
+    background: none;
+    border: none;
+    color: #666;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legal-tab:hover {
+    color: #fff;
+}
+
+.legal-tab.active {
+    color: var(--accent-blue);
+    position: relative;
+}
+
+.legal-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1.1rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-blue);
+}
+
+.legal-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.legal-content.active {
+    display: block;
+}
+
+.legal-content h3 {
+    font-family: var(--font-heading);
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 2rem 0 1rem;
+}
+
+.legal-content p {
     color: #888;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.accent-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.accent-link:hover {
+    opacity: 0.8;
+}
+
+/* Footer Enhancement */
+footer {
+    padding: 3rem 10%;
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+footer p {
+    color: #444;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: #444;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--accent-blue);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .legal-tabs {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .legal-tab.active::after {
+        display: none;
+    }
 }
 
 /* Responsive Design */
