@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Notice | asifthatworks</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        .legal-page-container {
+            padding: 120px 10% 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blob"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">asifthatworks<span>.</span></a>
+        </div>
+    </nav>
+
+    <main class="legal-page-container">
+        <a href="/" class="back-link">← Back to Manifestation</a>
+        <h1 class="section-title" style="text-align: left; margin-bottom: 2rem;">LEGAL NOTICE</h1>
+
+        <div class="legal-content active" style="display: block;">
+            <h3>Information according to § 5 TMG</h3>
+            <p>
+                Ky Anh Pham - AI Solutions & Development<br>
+                Brückenstraße 12<br>
+                12439 Berlin<br>
+                Germany
+            </p>
+
+            <h3>Contact Information</h3>
+            <p>
+                E-Mail: <a href="mailto:support@asifthatworks.com" class="accent-link">support@asifthatworks.com</a><br>
+                Website: <a href="http://www.asifthatworks.com" target="_blank"
+                    class="accent-link">www.asifthatworks.com</a>
+            </p>
+
+            <h3>VAT Identification Number</h3>
+            <p>
+                VAT ID according to § 27a UStG:<br>
+                Exempt from VAT according to § 19 UStG
+            </p>
+
+            <h3>Person Responsible for Content according to § 18 MStV</h3>
+            <p>
+                Ky Anh Pham<br>
+                Brückenstraße 12<br>
+                12439 Berlin<br>
+                Germany
+            </p>
+
+            <h3>Dispute Resolution</h3>
+            <p>
+                The European Commission provides a platform for online dispute resolution (ODR): <a
+                    href="https://ec.europa.eu/consumers/odr" target="_blank"
+                    class="accent-link">https://ec.europa.eu/consumers/odr</a>.<br><br>
+                Our e-mail address can be found above in the legal notice. We are not willing or obliged to participate
+                in dispute resolution proceedings before a consumer arbitration board.
+            </p>
+
+            <h3>Liability for Content</h3>
+            <p>
+                As a service provider, we are responsible for our own content on these pages in accordance with general
+                laws pursuant to § 7 para. 1 TMG. However, according to §§ 8 to 10 TMG, we as service providers are not
+                obliged to monitor transmitted or stored third-party information or to investigate circumstances that
+                indicate illegal activity.
+            </p>
+
+            <h3>Liability for Links</h3>
+            <p>
+                Our offer contains links to external websites of third parties, on whose contents we have no influence.
+                Therefore, we cannot assume any liability for these external contents.
+            </p>
+
+            <h3>Copyright</h3>
+            <p>
+                The content and works created by the site operators on these pages are subject to German copyright law.
+                The reproduction, processing, distribution and any kind of exploitation outside the limits of copyright
+                law require the written consent of the respective author or creator.
+            </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 AsifThatWorks. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/legal-notice">Legal Notice</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const blob = document.getElementById("blob");
+        window.onpointermove = event => {
+            const { clientX, clientY } = event;
+            blob.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            }, { duration: 2500, fill: "forwards" });
+        }
+    </script>
+</body>
+
+</html>

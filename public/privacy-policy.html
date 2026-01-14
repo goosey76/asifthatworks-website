@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | asifthatworks</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        .legal-page-container {
+            padding: 120px 10% 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blob"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">asifthatworks<span>.</span></a>
+        </div>
+    </nav>
+
+    <main class="legal-page-container">
+        <a href="/" class="back-link">← Back to Manifestation</a>
+        <h1 class="section-title" style="text-align: left; margin-bottom: 2rem;">PRIVACY POLICY</h1>
+
+        <div class="legal-content active" style="display: block;">
+            <p>Last Updated: January 2026</p>
+
+            <h4>1. General Information</h4>
+            <p>
+                We take the protection of your personal data very seriously. This Privacy Policy informs you about how
+                Ky Anh Pham - AI Solutions & Development ("we", "us", or "asifthatworks") collects, uses, and protects
+                your data when you use our SaaS platform and our AI agents (Jarvi, Grim, and Murphy).<br><br>
+                <strong>Controller:</strong> Ky Anh Pham - AI Solutions & Development<br>
+                Brückenstraße 12, 12439 Berlin, Germany<br>
+                Email: <a href="mailto:support@asifthatworks.com" class="accent-link">support@asifthatworks.com</a>
+            </p>
+
+            <h4>2. Data Collection and Purposes</h4>
+            <p>
+                We process personal data only as far as necessary to provide a functional website and our services (Art.
+                6 para. 1 lit. b GDPR).<br><br>
+                • <strong>Account Data:</strong> Name, email address, and authentication data.<br>
+                • <strong>User Content:</strong> Preferences, goals, personal notes, and voice memos.<br>
+                • <strong>Contextual Data:</strong> Location data and time zones.<br>
+                • <strong>Integration Data:</strong> Data from Google Calendar and Google Tasks (if connected).
+            </p>
+
+            <h4>3. Google API Disclosure (Limited Use)</h4>
+            <p>
+                Our application uses Google APIs to provide core features.<br><br>
+                • <strong>Usage:</strong> We access your Google Calendar and Google Tasks to read, create, or modify
+                entries as requested by you through our AI agents.<br>
+                • <strong>Limited Use:</strong> Our use and transfer of information received from Google APIs to any
+                other app will adhere to the Google API Services User Data Policy, including the Limited Use
+                requirements.<br>
+                • <strong>Privacy:</strong> We do not use your Google user data to display advertisements, and we do not
+                sell this data to third parties.
+            </p>
+
+            <h4>4. Artificial Intelligence and Data Processing</h4>
+            <p>
+                To provide our services, your inputs are processed by Large Language Models (LLMs).<br><br>
+                • <strong>Providers:</strong> We use OpenAI, Google Gemini, and OpenRouter as processing interfaces.<br>
+                • <strong>Local Processing:</strong> Where possible, we utilize local models (e.g., via Ollama) to
+                enhance privacy.<br>
+                • <strong>Anonymization:</strong> We aim to minimize the transfer of personally identifiable information
+                (PII) to AI models.
+            </p>
+
+            <h4>5. Third-Party Services and Subprocessors</h4>
+            <p>
+                • <strong>Hosting:</strong> Hostinger (EU-based servers).<br>
+                • <strong>Payments:</strong> Stripe (Subscription processing).<br>
+                • <strong>Email:</strong> Hostinger email services.
+            </p>
+
+            <h4>6. International Data Transfers</h4>
+            <p>Data transfer to the USA is based on the EU-U.S. Data Privacy Framework or Standard Contractual Clauses
+                (SCCs) approved by the European Commission.</p>
+
+            <h4>7. Data Retention</h4>
+            <p>We store data as long as your account is active. You can request account deletion at any time.</p>
+
+            <h4>8. Your Rights</h4>
+            <p>Under the GDPR, you have the right to access, rectification, erasure, data portability, and objection.
+                Contact support@asifthatworks.com to exercise these rights.</p>
+
+            <h4>9. Data Security</h4>
+            <p>We implement state-of-the-art technical measures (e.g., SSL/TLS encryption) to protect your data.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 AsifThatWorks. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/legal-notice">Legal Notice</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const blob = document.getElementById("blob");
+        window.onpointermove = event => {
+            const { clientX, clientY } = event;
+            blob.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            }, { duration: 2500, fill: "forwards" });
+        }
+    </script>
+</body>
+
+</html>

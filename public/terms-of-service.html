@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service | asifthatworks</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono&display=swap"
+        rel="stylesheet">
+    <style>
+        .legal-page-container {
+            padding: 120px 10% 80px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--accent-blue);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="blob"></div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">asifthatworks<span>.</span></a>
+        </div>
+    </nav>
+
+    <main class="legal-page-container">
+        <a href="/" class="back-link">← Back to Manifestation</a>
+        <h1 class="section-title" style="text-align: left; margin-bottom: 2rem;">TERMS OF SERVICE</h1>
+
+        <div class="legal-content active" style="display: block;">
+            <p>Effective Date: January 2026</p>
+
+            <h4>1. Contractual Relationship</h4>
+            <p>These Terms of Service ("Terms") govern the access and use of the website, services, and AI agents
+                (collectively, the "Service") provided by Ky Anh Pham - AI Solutions & Development, Brückenstraße 12,
+                12439 Berlin, Germany ("we", "us", or "asifthatworks").</p>
+
+            <h4>2. Description of Service</h4>
+            <p>
+                asifthatworks provides AI-driven productivity agents, including <strong>Jarvi</strong>,
+                <strong>Grim</strong>, and <strong>Murphy</strong>. The Service is provided as a Software-as-a-Service
+                (SaaS) model. We reserve the right to modify or replace underlying AI models at any time.
+            </p>
+
+            <h4>3. AI Disclaimer and Liability</h4>
+            <p>
+                • <strong>AI Accuracy:</strong> AI can produce inaccurate information ("hallucinations").<br>
+                • <strong>User Responsibility:</strong> You are solely responsible for verifying the accuracy of any
+                output before relying on it.<br>
+                • <strong>Liability Limitation:</strong> As a solo-developer enterprise, we provide the Service on an
+                "as-is" basis. We are not liable for damages resulting from incorrect AI outputs, except in cases of
+                gross negligence.<br>
+                • <strong>Service Availability:</strong> We strive for 99.9% uptime ("Best Effort").
+            </p>
+
+            <h4>4. Subscriptions and Payments</h4>
+            <p>
+                • <strong>Plans:</strong> Free, Pro, and Unlimited Pro tiers.<br>
+                • <strong>Billing:</strong> Processed via Stripe. Monthly billing cycles.<br>
+                • <strong>Cancellation:</strong> You may cancel at any time. Access continues until the end of the
+                current cycle. No partial refunds.
+            </p>
+
+            <h4>5. Right of Withdrawal (EU Consumers)</h4>
+            <p>By accessing the digital Service, you expressly consent to the immediate commencement of the Service and
+                acknowledge that your 14-day right of withdrawal expires once the digital content is accessed.</p>
+
+            <h4>6. Intellectual Property</h4>
+            <p>
+                • <strong>Our Content:</strong> All software, code, designs, and 3D models belong to Ky Anh Pham.<br>
+                • <strong>User Output:</strong> You own all rights to specific plans and schedules generated through
+                your use of the Service.
+            </p>
+
+            <h4>7. Prohibited Conduct</h4>
+            <p>You agree not to use the Service for illegal activities, harassment, reverse-engineering, or violating AI
+                safety guidelines.</p>
+
+            <h4>8. Governing Law and Jurisdiction</h4>
+            <p>These Terms are governed by the laws of the Federal Republic of Germany. Place of jurisdiction is Berlin,
+                Germany.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2025 AsifThatWorks. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/legal-notice">Legal Notice</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/terms-of-service">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const blob = document.getElementById("blob");
+        window.onpointermove = event => {
+            const { clientX, clientY } = event;
+            blob.animate({
+                left: `${clientX}px`,
+                top: `${clientY}px`
+            }, { duration: 2500, fill: "forwards" });
+        }
+    </script>
+</body>
+
+</html>
