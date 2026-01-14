@@ -1,0 +1,837 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #ffffff;
+    --accent-blue: #448AFF;
+    /* Electric Cobalt Blue - High Contrast */
+    --accent-purple: #9d50bb;
+    --accent-orange: #ff9966;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --font-primary: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+#blob {
+    background-color: white;
+    height: 34vmax;
+    aspect-ratio: 1;
+    position: fixed;
+    translate: -50% -50%;
+    border-radius: 50%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: rotate-blob 20s infinite;
+    opacity: 0.35;
+    z-index: -2;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+}
+
+#blur {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+    backdrop-filter: blur(12vmax);
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+@keyframes rotate-blob {
+    from {
+        rotate: 0deg;
+    }
+
+    50% {
+        scale: 1 1.5;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+/* Background Glows */
+.glow-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(68, 138, 255, 0.1) 0%, rgba(157, 80, 187, 0.1) 30%, rgba(5, 5, 5, 0) 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(100px);
+    animation: drift 20s infinite alternate ease-in-out;
+}
+
+@keyframes drift {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate(-45%, -55%) scale(1.1);
+    }
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 5, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--accent-blue);
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.glitch {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    position: relative;
+    background: linear-gradient(to right, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hacker-text {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.05em;
+    min-height: 6rem;
+    /* Prevents vertical jumping */
+    display: inline-block;
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #ccc;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 1.5s forwards;
+}
+
+.hero-subtitle .typewriter {
+    display: inline-block;
+    overflow: hidden;
+    border-right: 0.12em solid var(--accent-blue);
+    white-space: nowrap;
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.02em;
+    width: 0;
+}
+
+/* First line: starts at 2s, types for 2s, caret stops at 4s */
+.hero-subtitle .typewriter-line1 {
+    animation:
+        typing-line1 2s steps(46) 2s forwards,
+        blink-caret 0.75s step-end 2s 2.67,
+        stopCaret 0s 4s forwards;
+}
+
+/* Second line: caret appears at 4s, types for 1.3s */
+.hero-subtitle .typewriter-line2 {
+    border-right-color: transparent;
+    /* Start invisible */
+    animation:
+        showCaret 0s 4s forwards,
+        typing-line2 1.3s steps(23) 4s forwards,
+        blink-caret 0.75s step-end infinite 4s;
+}
+
+/* Stop caret after animation */
+.hero-subtitle .typewriter.typed {
+    border-right-color: transparent;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes typing-line1 {
+    to {
+        width: 46ch;
+    }
+}
+
+@keyframes typing-line2 {
+    to {
+        width: 26ch;
+        /* Increased to show full "JARVIS." */
+    }
+}
+
+@keyframes stopCaret {
+    to {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes showCaret {
+    to {
+        border-right-color: var(--accent-blue);
+    }
+}
+
+@keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.hero-subtitle span {
+    color: var(--accent-blue);
+    font-weight: bold;
+}
+
+.hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in 6s forwards;
+}
+
+.btn-glitch {
+    padding: 1.2rem 3.5rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: #fff;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+}
+
+.btn-glitch:hover {
+    background: #fff;
+    color: #000;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.15);
+    border-color: #fff;
+}
+
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+}
+
+.pulse {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-purple);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(157, 80, 187, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(157, 80, 187, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(157, 80, 187, 0);
+    }
+}
+
+/* Agents Section */
+.agents-section {
+    padding: 8rem 10%;
+    text-align: center;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    letter-spacing: 4px;
+}
+
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem 2rem;
+    justify-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.jarvis-card {
+    grid-column: span 6;
+    margin-bottom: 3rem;
+}
+
+.grim-card,
+.murphy-card {
+    grid-column: span 3;
+}
+
+.future-card {
+    grid-column: span 2;
+}
+
+/* Agent Card Stying (Adapted from user's css_card.css) */
+.agent-card {
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #000;
+    border-radius: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.agent-card::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(-45deg, var(--accent-blue), var(--accent-purple));
+    z-index: -1;
+    transition: all 0.6s;
+}
+
+.jarvis-card::before {
+    background: linear-gradient(-45deg, #1cc2ff, #222);
+}
+
+.grim-card::before {
+    background: linear-gradient(-45deg, #9d50bb, #6e48aa);
+}
+
+.murphy-card::before {
+    background: linear-gradient(-45deg, #ff9966, #ff5e62);
+}
+
+.future-card::before {
+    background: linear-gradient(-45deg, #333, #666);
+}
+
+.future-card img {
+    filter: grayscale(100%) brightness(0.7);
+}
+
+.future-card:hover img {
+    filter: grayscale(50%) brightness(0.9);
+}
+
+.future-card .role {
+    color: #666;
+}
+
+.future-card:hover::before {
+    background: linear-gradient(-45deg, #ff5f56, #333);
+    /* Subtle red glow for mystery */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 19px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.agent-card img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    filter: grayscale(20%);
+    transition: all 0.6s;
+}
+
+.agent-card:hover img {
+    height: 45%;
+    filter: grayscale(0%);
+}
+
+.card-content {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.card-content .heading {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem;
+}
+
+.card-content .role {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.card-content .desc {
+    font-size: 0.9rem;
+    color: #888;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s 0.2s;
+}
+
+.agent-card:hover .card-content .desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.agent-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.agent-card:hover::before {
+    inset: -5px;
+    filter: blur(25px);
+    opacity: 0.8;
+}
+
+/* Console Section */
+.manifestation-console {
+    padding: 5rem 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.console-box {
+    width: 100%;
+    max-width: 800px;
+    background: #0d0d0d;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.console-header {
+    background: #1a1a1a;
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot:nth-child(1) {
+    background: #ff5f56;
+}
+
+.dot:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.dot:nth-child(3) {
+    background: #27c93f;
+}
+
+.console-header p {
+    font-size: 0.75rem;
+    color: #666;
+    font-family: monospace;
+    margin-left: 1rem;
+}
+
+.console-body {
+    padding: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+}
+
+.line {
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+.green {
+    color: #27c93f;
+}
+
+.blue {
+    color: #00d2ff;
+    font-weight: bold;
+}
+
+.found {
+    color: #ffbd2e;
+    text-decoration: underline;
+}
+
+/* Roadmap Section */
+.roadmap-section {
+    padding: 8rem 10%;
+    text-align: center;
+}
+
+.roadmap-cards {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.roadmap-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+.roadmap-card.active {
+    border-color: rgba(68, 138, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card-header:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.card-header h3 {
+    font-family: var(--font-heading);
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.roadmap-card.active .card-header h3 {
+    color: var(--accent-blue);
+}
+
+.expand-icon {
+    font-size: 1.5rem;
+    color: var(--accent-blue);
+    font-family: monospace;
+}
+
+.card-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    padding: 0 2rem;
+}
+
+.roadmap-card.active .card-body {
+    max-height: 1000px;
+    /* Large enough to fit content */
+    padding: 1rem 2rem 2.5rem 2rem;
+}
+
+.sub-milestone {
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sub-milestone:last-child {
+    margin-bottom: 0;
+}
+
+.sub-milestone h4 {
+    font-family: var(--font-heading);
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+}
+
+.sub-milestone p {
+    color: #888;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.sub-milestone strong {
+    color: #fff;
+}
+
+/* Features */
+.features {
+    padding: 8rem 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+}
+
+.feature-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-blue);
+}
+
+/* Footer */
+footer {
+    padding: 4rem 10%;
+    border-top: 1px solid var(--glass-border);
+    text-align: center;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+footer span {
+    color: #888;
+}
+
+/* Responsive Design */
+
+/* Tablet and smaller desktops (1200px and below) */
+@media (max-width: 1200px) {
+    .agents-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+
+    .jarvis-card {
+        grid-column: span 4;
+    }
+
+    .grim-card,
+    .murphy-card {
+        grid-column: span 2;
+    }
+
+    .future-card {
+        grid-column: span 2;
+    }
+}
+
+/* Tablet (900px and below) */
+@media (max-width: 900px) {
+    .agents-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .jarvis-card {
+        grid-column: span 2;
+    }
+
+    .grim-card,
+    .murphy-card {
+        grid-column: span 1;
+    }
+
+    .future-card {
+        grid-column: span 1;
+    }
+
+    .agent-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    .glitch {
+        font-size: 3rem;
+    }
+
+    .hacker-text {
+        min-height: 4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    nav {
+        padding: 1.5rem 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .agents-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .jarvis-card,
+    .grim-card,
+    .murphy-card,
+    .future-card {
+        grid-column: span 1;
+    }
+
+    .agent-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .roadmap-cards {
+        padding: 0 1rem;
+    }
+
+    .features {
+        padding: 4rem 5%;
+    }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+    .glitch {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-glitch {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+    }
+
+    .agent-card {
+        height: 400px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+}
