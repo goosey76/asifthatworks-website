@@ -696,25 +696,13 @@ nav {
     color: var(--accent-blue);
 }
 
-/* Legal Section */
-.legal-section {
-    padding: 6rem 10%;
-    background: rgba(5, 5, 5, 0.5);
-    border-top: 1px solid var(--glass-border);
-}
-
-.legal-container {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: left;
-}
-
+/* Legal Customizations inside Roadmap Card */
 .legal-tabs {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 3rem;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
     border-bottom: 1px solid var(--glass-border);
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
 }
 
 .legal-tab {
@@ -722,26 +710,26 @@ nav {
     border: none;
     color: #666;
     font-family: var(--font-heading);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.legal-tab:hover {
-    color: #fff;
+.legal-tab:hover,
+.legal-tab.active {
+    color: var(--accent-blue);
 }
 
 .legal-tab.active {
-    color: var(--accent-blue);
     position: relative;
 }
 
 .legal-tab.active::after {
     content: '';
     position: absolute;
-    bottom: -1.1rem;
+    bottom: -0.6rem;
     left: 0;
     width: 100%;
     height: 2px;
@@ -750,7 +738,7 @@ nav {
 
 .legal-content {
     display: none;
-    animation: fadeIn 0.5s ease;
+    animation: fadeIn 0.4s ease;
 }
 
 .legal-content.active {
@@ -760,15 +748,21 @@ nav {
 .legal-content h3 {
     font-family: var(--font-heading);
     color: #fff;
-    font-size: 1.1rem;
-    margin: 2rem 0 1rem;
+    font-size: 1rem;
+    margin: 1.5rem 0 0.8rem;
+}
+
+.legal-content h4 {
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    margin: 1.2rem 0 0.5rem;
 }
 
 .legal-content p {
     color: #888;
     line-height: 1.6;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
 .accent-link {
