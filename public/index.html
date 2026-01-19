@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <div id="scroll-progress"></div>
     <div id="blob"></div>
     <div id="blur"></div>
     <div class="glow-bg"></div>
@@ -49,7 +50,7 @@
             <!-- JARVIS -->
             <div class="agent-card jarvis-card">
                 <div class="card-inner">
-                    <img src="assets/agents/jarvi.jpg" alt="JARVIS">
+                    <img src="assets/agents/jarvis.png" alt="JARVIS">
                     <div class="card-content">
                         <p class="heading">JARVIS</p>
                         <p class="role">Lead Architect</p>
@@ -62,7 +63,7 @@
             <!-- GRIM -->
             <div class="agent-card grim-card">
                 <div class="card-inner">
-                    <img src="assets/agents/grim_purple.jpg" alt="Grim">
+                    <img src="assets/agents/grim.png" alt="Grim">
                     <div class="card-content">
                         <p class="heading">GRIM</p>
                         <p class="role">Calendar specialist</p>
@@ -75,7 +76,7 @@
             <!-- MURPHY -->
             <div class="agent-card murphy-card">
                 <div class="card-inner">
-                    <img src="assets/agents/murphy.jpg" alt="Murphy">
+                    <img src="assets/agents/murphy.png" alt="Murphy">
                     <div class="card-content">
                         <p class="heading">MURPHY</p>
                         <p class="role">Task Execution</p>
@@ -353,6 +354,14 @@
                 line.style.transition = 'all 0.5s ease-out';
             }, index * 800);
         });
+
+        // Scroll Progress Bar
+        window.onscroll = function () {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
 
     </script>
 </body>
