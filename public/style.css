@@ -17,9 +17,9 @@
     left: 0;
     width: 0%;
     height: 10px;
-    background: var(--accent-blue);
+    background: linear-gradient(to right, var(--accent-blue), var(--accent-purple), var(--accent-orange));
     z-index: 1000;
-    box-shadow: 0 0 10px var(--accent-blue);
+    /* box-shadow removed as per request */
     transition: width 0.1s ease-out;
 }
 
@@ -127,7 +127,11 @@ nav {
 }
 
 .logo span {
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .nav-links a {
@@ -274,7 +278,11 @@ nav {
 }
 
 .hero-subtitle span {
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     font-weight: bold;
 }
 
@@ -476,7 +484,11 @@ nav {
 .card-content .role {
     font-size: 0.8rem;
     text-transform: uppercase;
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     letter-spacing: 1px;
     margin-bottom: 0.5rem;
 }
@@ -610,7 +622,7 @@ nav {
 .timeline-progress {
     position: absolute;
     width: 4px;
-    background-color: var(--accent-blue);
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-orange));
     top: 35px;
     height: 0;
     /* Updated by JS */
@@ -693,7 +705,11 @@ nav {
 /* Content Styling */
 .card-header h3 {
     font-family: var(--font-heading);
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -749,7 +765,11 @@ nav {
 
 .sub-milestone h4 {
     font-family: var(--font-heading);
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -791,7 +811,11 @@ nav {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 /* Legal Customizations inside Roadmap Card */
@@ -817,7 +841,11 @@ nav {
 
 .legal-tab:hover,
 .legal-tab.active {
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .legal-tab.active {
@@ -856,7 +884,7 @@ nav {
 }
 
 .legal-content.active::-webkit-scrollbar-thumb {
-    background: var(--accent-blue);
+    background: linear-gradient(to bottom, var(--accent-blue), var(--accent-purple), var(--accent-orange));
     border-radius: 10px;
 }
 
@@ -868,7 +896,11 @@ nav {
 }
 
 .legal-content h4 {
-    color: var(--accent-blue);
+    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
     font-size: 0.9rem;
     margin: 1.2rem 0 0.5rem;
 }
