@@ -1,8 +1,8 @@
 :root {
     --bg-color: #050505;
     --text-color: #ffffff;
-    --accent-blue: #448AFF;
-    /* Electric Cobalt Blue - High Contrast */
+    --accent-blue: #ccff00;
+    /* Lime Green - High Contrast */
     --accent-purple: #9d50bb;
     --accent-orange: #ff9966;
     --glass-bg: rgba(255, 255, 255, 0.03);
@@ -74,7 +74,7 @@ body {
     left: 50%;
     width: 60vw;
     height: 60vw;
-    background: radial-gradient(circle, rgba(68, 138, 255, 0.1) 0%, rgba(157, 80, 187, 0.1) 30%, rgba(5, 5, 5, 0) 70%);
+    background: radial-gradient(circle, rgba(204, 255, 0, 0.1) 0%, rgba(157, 80, 187, 0.1) 30%, rgba(5, 5, 5, 0) 70%);
     transform: translate(-50%, -50%);
     z-index: -1;
     filter: blur(100px);
@@ -138,13 +138,13 @@ nav {
     padding: 0.8rem 2rem;
     border-radius: 8px;
     font-weight: 700;
-    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(204, 255, 0, 0.3);
     transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.5);
+    box-shadow: 0 8px 25px rgba(204, 255, 0, 0.5);
 }
 
 /* Hero Section */
@@ -591,7 +591,7 @@ nav {
 }
 
 .roadmap-card.active {
-    border-color: rgba(68, 138, 255, 0.3);
+    border-color: rgba(204, 255, 0, 0.3);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -913,7 +913,7 @@ footer p {
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 0.85rem;
     }
 
     nav {
@@ -962,7 +962,7 @@ footer p {
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 3.2vw;
     }
 
     .btn-glitch {
