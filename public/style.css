@@ -1,15 +1,23 @@
 :root {
     --bg-color: #050505;
-    --text-color: #ffffff;
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-primary: 'Inter', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --accent-blue: #ccff00;
-    /* Lime Green - High Contrast */
     --accent-purple: #9d50bb;
     --accent-orange: #ff9966;
-    --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --font-primary: 'Plus Jakarta Sans', sans-serif;
-    --font-heading: 'Space Grotesk', sans-serif;
 }
+
+/* Agent-Specific Themes */
+.jarvi-card    { --agent-color-1: #0088ff; --agent-color-2: #00d4ff; }
+.grim-card     { --agent-color-1: #11998e; --agent-color-2: #38ef7d; }
+.murphy-card   { --agent-color-1: #ff7b00; --agent-color-2: #ffae00; }
+.historian-card{ --agent-color-1: #6200ea; --agent-color-2: #ffd700; }
+.future-card   { --agent-color-1: #333333; --agent-color-2: #666666; }
 
 #scroll-progress {
     position: fixed;
@@ -372,154 +380,232 @@ nav {
 }
 
 .agents-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 4rem;
-    justify-items: center;
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    scroll-snap-type: x mandatory;
+    padding: 2rem 0;
     max-width: 1200px;
     margin: 0 auto;
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
-.jarvis-card {
-    grid-column: span 6;
-    /* margin-bottom removed to ensure equal gaps */
+.agents-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari */
 }
 
-.grim-card,
-.murphy-card {
-    grid-column: span 3;
-}
-
-.future-card {
-    grid-column: span 2;
-}
-
-/* Agent Card Stying (Adapted from user's css_card.css) */
+/* Agent Card Base & Perspective */
 .agent-card {
-    position: relative;
-    width: 320px;
-    height: 380px;
-    background: #000;
-    border-radius: 20px;
+    min-width: 280px;
+    height: 400px;
+    perspective: 1000px;
+    scroll-snap-align: start;
     cursor: pointer;
-    overflow: hidden;
-    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.agent-card::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    background: linear-gradient(-45deg, var(--accent-blue), var(--accent-purple));
-    z-index: -1;
-    transition: all 0.6s;
-}
-
-.jarvis-card::before {
-    background: linear-gradient(-45deg, #1cc2ff, #222);
-}
-
-.grim-card::before {
-    background: linear-gradient(-45deg, #9d50bb, #6e48aa);
-}
-
-.murphy-card::before {
-    background: linear-gradient(-45deg, #ff9966, #ff5e62);
-}
-
-.future-card::before {
-    background: linear-gradient(-45deg, #333, #666);
-}
-
-.future-card img {
-    filter: grayscale(100%) brightness(0.7);
-}
-
-.future-card:hover img {
-    filter: grayscale(50%) brightness(0.9);
-}
-
-.future-card .role {
-    color: #666;
-}
-
-.future-card:hover::before {
-    background: linear-gradient(-45deg, #ff5f56, #333);
-    /* Subtle red glow for mystery */
-}
-
-.card-inner {
+.agent-content {
+    position: relative;
     width: 100%;
     height: 100%;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 19px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.agent-card img {
+.agent-card:hover .agent-content {
+    transform: rotateY(180deg);
+}
+
+/* Back Face (Visible by default) */
+.agent-back {
+    position: absolute;
     width: 100%;
-    height: 65%;
+    height: 100%;
+    background: #000;
+    border-radius: 20px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    border: var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.agent-back::before {
+    position: absolute;
+    content: ' ';
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(90deg, transparent, var(--agent-color-1), var(--agent-color-2), var(--agent-color-1), transparent);
+    animation: rotation_border 4s infinite linear;
+    opacity: 0.3;
+}
+
+@keyframes rotation_border {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+.agent-back-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    border-radius: 20px;
+}
+
+.agent-back-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--agent-color-1);
+    box-shadow: 0 0 20px var(--agent-color-1);
+}
+
+.agent-back-icon img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    object-position: center 55%;
-    filter: grayscale(20%);
-    transition: all 0.6s;
 }
 
-.agent-card:hover img {
-    height: 50%;
-    filter: grayscale(0%);
-}
-
-.card-content {
-    padding: 1.2rem;
-    text-align: left;
-}
-
-.card-content .heading {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 0.2rem;
-    margin-top: -10px;
-}
-
-.card-content .role {
+.hover-hint {
     font-size: 0.8rem;
+    color: var(--text-secondary);
     text-transform: uppercase;
-    background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple), var(--accent-orange));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+}
+
+/* Front Face (Visible on hover) */
+.agent-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    color: white;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    border: var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.agent-front::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+}
+
+.agent-front .circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(var(--agent-color-1), var(--agent-color-2));
+    filter: blur(40px);
+    opacity: 0.2;
+}
+
+.circle-1 {
+    width: 150px;
+    height: 150px;
+    top: -50px;
+    right: -50px;
+}
+
+.circle-2 {
+    width: 100px;
+    height: 100px;
+    bottom: -30px;
+    left: -30px;
+}
+
+.agent-front-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.agent-name-flip {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
     margin-bottom: 0.5rem;
+    letter-spacing: 2px;
 }
 
-.card-content .desc {
-    font-size: 0.85rem;
-    color: #888;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s 0.2s;
+.agent-role-flip {
+    font-size: 0.9rem;
+    color: var(--agent-color-2);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
 }
 
-.agent-card:hover .card-content .desc {
-    opacity: 1;
-    transform: translateY(0);
+.action-btn {
+    background: transparent;
+    border: 1px solid var(--agent-color-1);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.agent-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+.action-btn:hover {
+    background: var(--agent-color-1);
+    box-shadow: 0 0 20px var(--agent-color-1);
 }
 
-.agent-card:hover::before {
-    inset: -5px;
-    filter: blur(25px);
-    opacity: 0.8;
+/* Status Pill */
+.status-pill {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.status-active {
+    background: rgba(0, 0, 0, 0.3);
+    color: var(--agent-color-2);
+    border: 1px solid var(--agent-color-1);
+    box-shadow: 0 0 15px var(--agent-color-1), inset 0 0 5px var(--agent-color-1);
+    animation: statusPulse 3s infinite ease-in-out;
+}
+
+.status-pending {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes statusPulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+        box-shadow: 0 0 25px var(--agent-color-1), inset 0 0 10px var(--agent-color-1);
+    }
 }
 
 /* Console Section */
