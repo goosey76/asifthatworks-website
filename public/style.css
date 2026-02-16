@@ -411,7 +411,7 @@ nav {
 }
 
 .agents-grid::-webkit-scrollbar {
-    height: 4px;
+    height: 2px;
 }
 
 .agents-grid::-webkit-scrollbar-track {
@@ -490,13 +490,14 @@ nav {
     }
 }
 
-.agent-back::before {
+.agent-back::before,
+.agent-front::before {
     content: '';
     position: absolute;
-    width: 150%;
-    height: 150%;
+    width: 160%;
+    height: 160%;
     background: linear-gradient(90deg, transparent, var(--agent-color-1), var(--agent-color-2), var(--agent-color-1), transparent);
-    animation: rotation_481 4000ms infinite linear;
+    animation: rotation_481 5000ms infinite linear;
     z-index: 1;
 }
 
@@ -552,12 +553,10 @@ nav {
     backface-visibility: hidden;
     border-radius: 20px;
     overflow: hidden;
-    border: var(--glass-border);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2.5rem;
 }
 
 .agent-front::after {
@@ -590,16 +589,34 @@ nav {
 }
 
 .agent-front-content {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    z-index: 2;
+    inset: 2px;
+    background: #000;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.description-box {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 1.2rem;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     text-align: center;
 }
 
 .agent-name-flip {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     letter-spacing: 2px;
 }
 
@@ -613,23 +630,15 @@ nav {
 }
 
 .agent-desc-flip {
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: 0.8rem;
+    line-height: 1.5;
     color: var(--text-secondary);
     opacity: 0.76;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     font-family: var(--font-primary);
 }
 
-.description-box {
-    background: #00000099;
-    backdrop-filter: blur(5px);
-    border-radius: 12px;
-    padding: 1.5rem;
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
+
 
 .info-tag {
     display: inline-block;
